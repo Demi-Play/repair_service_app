@@ -3,17 +3,59 @@
 {% block title %}Портфолио{% endblock %}
 
 {% block content %}
-<h2>Наше портфолио</h2>
-<div class="row">
-    {% for item in portfolio_items %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="{{ item.image_url }}" class="card-img-top" alt="Portfolio Item">
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.description }}</h5>
-                </div>
+
+
+<!-- Форма для добавления нового элемента в портфолио -->
+<!--<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.image_url.label(class='form-label') }}
+        {{ form.image_url(class='form-control') }}
+    </div>
+    <div class="form-group">
+        {{ form.description.label(class='form-label') }}
+        {{ form.description(class='form-control') }}
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить элемент</button>
+</form> -->
+
+<div class="jumbotron text-center">
+    <h2>Портфолио</h2>
+    <!-- Отображение элементов портфолио -->
+<div class="mt-4">
+    <h3>Наше действующее портфолио, которым мы гордимся:</h3>
+    <div class="row">
+        {% for item in portfolio_items %}
+            <div class="col-md-4 mb-3">
+                <img style="width: 350px; height: 237px" src="../static/{{ item.image_url }}" data-src-big="../static/{{ item.image_url }}" alt="Portfolio Item" class="img-thumbnail" onclick="openModal(this)">
+                <h5>{{ item.description }}</h5>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
+    
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
 </div>
+</div>
+
+<script>
+    function openModal(img) {
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        var captionText = document.getElementById("caption");
+        
+        modal.style.display = "block";
+        modalImg.src = img.getAttribute('data-src-big');
+        captionText.innerHTML = img.alt; // Подпись к изображению
+    }
+    
+    function closeModal() {
+        var modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+    }
+</script>
 {% endblock %}

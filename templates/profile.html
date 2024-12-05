@@ -3,7 +3,10 @@
 {% block title %}Профиль{% endblock %}
 
 {% block content %}
+<div class="jumbotron text-center">
+
 <h2>Профиль пользователя</h2>
+<br>
 <form method="POST">
     <div class="form-group">
         <label for="username">Имя пользователя</label>
@@ -13,13 +16,8 @@
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
     </div>
+    <br>
     <button type="submit" class="btn btn-primary">Сохранить изменения</button>
 </form>
-<form action="{{ url_for('set_theme', theme='light') }}" method="POST">
-    <button type="submit" class="btn btn-light">Светлая тема</button>
-</form>
-
-<form action="{{ url_for('set_theme', theme='dark') }}" method="POST">
-    <button type="submit" class="btn btn-dark">Темная тема</button>
-</form>
+</div>
 {% endblock %}

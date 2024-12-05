@@ -1,3 +1,4 @@
+import app
 from flask_login import UserMixin
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -7,7 +8,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
-    role = db.Column(db.String(20))  # admin, moderator, client
+    role = db.Column(db.String(20), default='client')  # admin, moderator, client
     orders = db.relationship('Order', backref='user', lazy=True)
     
     @property
@@ -62,3 +63,39 @@ class PortfolioItem(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     image_url = db.Column(db.String(255))
     description = db.Column(db.Text)
+    
+
+# with app.app.app_context():
+    # services = [
+    #         Service(name="Косметический ремонт", description="Обновление интерьера с минимальными затратами.", price=1500),
+    #         Service(name="Капитальный ремонт", description="Полный ремонт квартиры с заменой всех коммуникаций.", price=3000),
+    #         Service(name="Установка окон и дверей", description="Установка пластиковых окон и межкомнатных дверей.", price=5000),
+    #         Service(name="Электромонтажные работы", description="Проведение электропроводки.", price=2000),
+    #         Service(name="Сантехнические работы", description="Установка и замена сантехники.", price=2500),
+    #         Service(name="Отделка балконов", description="Утепление и отделка балконов под ключ.", price=40000),
+    #         Service(name="Дизайн интерьера", description="Разработка индивидуального дизайна интерьера.", price=10000),
+    #     ]
+
+    #     # Добавление услуг в базу данных
+    # db.session.bulk_save_objects(services)
+# # Создание портфолио
+#   user_id = 4
+#   portfolio_items = [
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_1.jpg', description='Косметический ремонт в квартире'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_2.jpg', description='Капитальный ремонт ванной комнаты'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_3.jpg', description='Установка окон в загородном доме'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_4.jpg', description='Электромонтажные работы в офисе'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_5.jpg', description='Сантехнические работы в квартире'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_6.jpg', description='Отделка балкона под ключ'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_7.jpg', description='Дизайн интерьера спальни'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_8.jpg', description='Ремонт кухни с нуля'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_9.jpg', description='Обновление интерьера детской комнаты'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_10.jpg', description='Капитальный ремонт коммерческого помещения'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_11.jpg', description='Установка межкомнатных дверей'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_12.jpg', description='Ремонт санузла в новостройке'),
+#         PortfolioItem(user_id=user_id, image_url='url_to_image_13.jpg', description='Декорирование стен с помощью обоев'),
+#     ]
+
+#     # Добавление портфолио в базу данных
+#   db.session.bulk_save_objects(portfolio_items)
+#   db.session.commit()

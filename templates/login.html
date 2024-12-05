@@ -3,6 +3,7 @@
 {% block title %}Вход{% endblock %}
 
 {% block content %}
+<div class="jumbotron text-center">
 <h2>Вход в систему</h2>
 <form method="POST">
     {{ form.hidden_tag() }}
@@ -16,4 +17,5 @@
     </div>
     {{ form.submit(class='btn btn-primary') }}
 </form>
+</div>
 {% endblock %}

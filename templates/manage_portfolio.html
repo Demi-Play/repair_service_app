@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Управление портфолио{% endblock %}
+
+{% block content %}
+<h2>Управление портфолио</h2>
+
+<form method="POST">
+    <h4>Добавить новый элемент портфолио</h4>
+    <div class="form-group">
+        <label for="image_url">URL изображения</label>
+        <input type="text" class="form-control" id="image_url" name="image_url" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить элемент портфолио</button>
+</form>
+
+<h4>Существующие элементы портфолио</h4>
+<ul class="list-group mt-3">
+    {% for item in portfolio_items %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <img src="{{ item.image_url }}" alt="{{ item.description }}" style="width: 50px; height: auto;">
+            {{ item.description }}
+            <!-- Здесь можно добавить кнопки для редактирования или удаления -->
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,24 +1,25 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f1e9e9;
     color: #333;
 }
 
 header {
-    background-color: #007bff; /* Цвет шапки */
+    background-color: #fddfdf; /* Цвет шапки */
     padding: 10px 0;
+    color: #333;
 }
 
 .navbar-brand {
-    color: #fff !important; /* Цвет текста в шапке */
+    color: #333 !important; /* Цвет текста в шапке */
 }
 
 .nav-link {
-    color: #fff !important; /* Цвет ссылок в шапке */
+    color: #333 !important; /* Цвет ссылок в шапке */
 }
 
 .jumbotron {
-    background-color: #007bff; /* Цвет фона на главной странице */
+    background-color: #ddc3c3; /* Цвет фона на главной странице */
     color: white;
 }
 
@@ -32,7 +33,46 @@ header {
 }
 
 footer {
-    background-color: #007bff; /* Цвет подвала */
-    color: white;
+    background-color: #f1e9e9; /* Цвет подвала */
+    color: #3f3f3f;
     padding: 20px 0;
+}
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Остается на месте */
+    z-index: 1000; /* На переднем плане */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включает прокрутку при необходимости */
+    background-color: rgb(0,0,0); /* Черный фон с прозрачностью */
+    background-color: rgba(0,0,0,0.9); /* Черный фон с прозрачностью */
+}
+
+.modal img {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: 80%; /* Высота изображения */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: rgb(247, 182, 162);
+    border-color: #ddc3c3;
+}
+
+.btn-primary:hover {
+    background-color: #d1b1b1;
+    border-color: #7a6c6c;
 }

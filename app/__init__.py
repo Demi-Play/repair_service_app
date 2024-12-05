@@ -7,7 +7,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from app.config import Config
 
-app = Flask(__name__, template_folder='../templates')
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config.from_object(Config)
 app.config['SECRET_KEY'] = 'IjQyMzQxZTJkMzA0ZGY2OWI1MjJlOGY4NWJlZTA5YjlkYWQyNzkyOGMi.Z1HLUw.MFNmS9xSMzk2FRbmeZvb39z-0MU'
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -48,3 +48,5 @@ def before_request():
 
 # Импорт маршрутов после инициализации приложения
 from app import views
+
+

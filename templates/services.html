@@ -3,13 +3,19 @@
 {% block title %}Услуги{% endblock %}
 
 {% block content %}
+<div class="jumbotron text-center">
+
 <h2>Наши услуги</h2>
+<br>
 <ul class="list-group">
     {% for service in services %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li style='color: #000' class="list-group-item d-flex justify-content-between align-items-center">
             {{ service.name }} - {{ service.price }} руб.
-            <a href="{{ url_for('order', service_id=service.id) }}" class="btn btn-success">Заказать</a>
+            <a href="{{ url_for('add_to_cart', service_id=service.id) }}" class="btn btn-primary">Добавить в корзину</a>
         </li>
     {% endfor %}
 </ul>
+<br>
+<a href="{{ url_for('cart') }}" class="btn btn-primary mt-3">Перейти в корзину</a>
+</div>
 {% endblock %}

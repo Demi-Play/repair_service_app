@@ -8,4 +8,19 @@
     <p class="lead">Мы предлагаем широкий спектр услуг по ремонту и отделке.</p>
     <a class="btn btn-primary btn-lg" href="{{ url_for('services') }}" role="button">Посмотреть услуги</a>
 </div>
+
+<div class="jumbotron text-center">
+<h2>Действующее портфолио</h2>
+<br>
+    <div class="row">
+        {% for item in portfolio_items %}
+            <div class="col-md-4 mb-3">
+                <img style="width: 350px; height: 237px" src="../static/{{ item.image_url }}" data-src-big="../static/{{ item.image_url }}" alt="Portfolio Item" class="img-thumbnail" onclick="openModal(this)">
+                <h5>{{ item.description }}</h5>
+            </div>
+        {% endfor %}
+    </div>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('portfolio') }}" role="button">Посмотреть портфолио</a>
+
+</div>
 {% endblock %}
