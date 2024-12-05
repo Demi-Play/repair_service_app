@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Услуги{% endblock %}
+
+{% block content %}
+<h2>Наши услуги</h2>
+<ul class="list-group">
+    {% for service in services %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ service.name }} - {{ service.price }} руб.
+            <a href="{{ url_for('order', service_id=service.id) }}" class="btn btn-success">Заказать</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

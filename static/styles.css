@@ -1,0 +1,38 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #007bff; /* Цвет шапки */
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    color: #fff !important; /* Цвет текста в шапке */
+}
+
+.nav-link {
+    color: #fff !important; /* Цвет ссылок в шапке */
+}
+
+.jumbotron {
+    background-color: #007bff; /* Цвет фона на главной странице */
+    color: white;
+}
+
+.card {
+    border: none; /* Убираем рамку у карточек */
+}
+
+.card-img-top {
+    height: 200px; /* Высота изображений в портфолио */
+    object-fit: cover; /* Обрезка изображений */
+}
+
+footer {
+    background-color: #007bff; /* Цвет подвала */
+    color: white;
+    padding: 20px 0;
+}

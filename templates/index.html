@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Добро пожаловать в сервис ремонта квартир!</h1>
+    <p class="lead">Мы предлагаем широкий спектр услуг по ремонту и отделке.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('services') }}" role="button">Посмотреть услуги</a>
+</div>
+{% endblock %}
