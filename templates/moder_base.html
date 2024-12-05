@@ -26,9 +26,9 @@
                     {% if current_user.is_authenticated %}
                         
                         {% if current_user.role == 'moderator' %}
-                            <a class="nav-link" href="{{ url_for('moderate/portfolio') }}">Управление портфолио</a>
-                            <a class="nav-link" href="{{ url_for('moderate/orders') }}">Управление заказами</a>
-                            <a class="nav-link" href="{{ url_for('moderate/services') }}">Управление услугами</a>
+                            <a class="nav-link" href="{{ url_for('manage_portfolio') }}">Управление портфолио</a>
+                            <a class="nav-link" href="{{ url_for('manage_orders') }}">Управление заказами</a>
+                            <a class="nav-link" href="{{ url_for('manage_services') }}">Управление услугами</a>
                         {% endif %}
                         <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Выход</a></li>
                     {% else %}
