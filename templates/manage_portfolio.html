@@ -1,11 +1,13 @@
 {% extends "moder_base.html" %}
 
+
 {% block title %}Управление портфолио{% endblock %}
 
 {% block content %}
 <h2>Управление портфолио</h2>
 
 <form method="POST">
+    {{ form.hidden_tag() }}
     <h4>Добавить новый элемент портфолио</h4>
     <div class="form-group">
         <label for="image_url">URL изображения</label>
@@ -24,7 +26,13 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <img src="../static/{{ item.image_url }}" alt="{{ item.description }}" style="width: 50px; height: auto;">
             {{ item.description }}
-            <!-- Здесь можно добавить кнопки для редактирования или удаления -->
+            <div>
+                <a href="{{ url_for('edit_portfolio_item', item_id=item.id) }}" class="btn btn-warning btn-sm">Редактировать</a>
+                <form action="{{ url_for('delete_portfolio_item', item_id=item.id) }}" method="POST" style="display:inline;">
+    {{ form.hidden_tag() }}
+    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                </form>
+            </div>
         </li>
     {% endfor %}
 </ul>

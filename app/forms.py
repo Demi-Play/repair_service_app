@@ -17,6 +17,12 @@ class OrderForm(FlaskForm):
     service_id = SelectField('Service', coerce=int)  # Заполнить данными из базы
     submit = SubmitField('Order Service')
 
+class ServiceForm(FlaskForm ):
+    name = StringField('Name', validators=[DataRequired(), Length(min=2)])
+    description = StringField('Description', validators=[DataRequired(), Length(min=2)])
+    price = FloatField('Price', validators=[DataRequired()])
+    submit = SubmitField('Done Service')
+
 class PortfolioForm(FlaskForm):
     image_url = StringField('Image URL', validators=[DataRequired()])
     description = TextAreaField('Description')

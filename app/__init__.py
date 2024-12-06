@@ -13,6 +13,7 @@ app.config['SECRET_KEY'] = 'IjQyMzQxZTJkMzA0ZGY2OWI1MjJlOGY4NWJlZTA5YjlkYWQyNzky
 app.config['SESSION_TYPE'] = 'filesystem'
 
 csrf = CSRFProtect(app)
+csrf.init_app(app)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

@@ -1,0 +1,23 @@
+{% extends "moder_base.html" %}
+
+
+{% block title %}Редактирование элемента портфолио{% endblock %}
+
+{% block content %}
+<h2>Редактирование элемента портфолио</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <label for="image_url">URL изображения</label>
+        <input type="text" class="form-control" id="image_url" name="image_url" value="{{ item.image_url }}" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea class="form-control" id="description" name="description" required>{{ item.description }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+
+<a href="{{ url_for('manage_portfolio') }}" class="btn btn-secondary mt-3">Назад к портфолио</a>
+{% endblock %}
