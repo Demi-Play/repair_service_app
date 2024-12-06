@@ -43,6 +43,8 @@ flask db upgrade # Применение миграций к базе данны�
 
 ```bash
 venv\Scripts\activate
+pip install -r requirements.txt
+pip install --upgrade Flask-Admin Flask-SQLAlchemy Flask-WTF Flask-Login Flask-Migrate
 ```
 
 Без дебаг мода
